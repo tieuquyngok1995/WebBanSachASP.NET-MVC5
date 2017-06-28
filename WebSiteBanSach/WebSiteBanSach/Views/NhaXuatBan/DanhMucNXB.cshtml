@@ -1,0 +1,84 @@
+﻿@using WebSiteBanSach.Models
+@model List<NhaXuatBan>
+@*Css cho trang chủ ở trong thư mục content*@
+<link href="~/Content/TrangChuCss.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "DanhMucNXB";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+@*Ẩn div chủ đề và div nhà xuất bản bên dưới*@
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3 col-md-3">
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h1 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                <span class="glyphicon glyphicon-folder-close">
+                                </span>Danh Mục Nhà Xuất Bản
+                            </a>
+                        </h1>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <table class="table">
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+
+                                            <span class="glyphicon glyphicon-pencil text-primary"></span><a href="@Url.Action("SachTheoNXB", new {@MaNXB=item.MaNXB })">@item.TenNXB</a>
+
+                                        </td>
+                                    </tr>
+                                }
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @{
+            List<Sach> lstSach = (List<Sach>)ViewBag.SachTheoNXB;
+            int i = 0;
+            <div class="col-sm-9 col-md-9">
+                @foreach (var item in lstSach)
+                {
+                    i++;
+                    <div class="col-sm-3 col-md-3">
+                        <div class="block-product">
+                            <div class="middle">
+                                <a href="@Url.Action("XemChiTiet", "Sach", new { @MaSach=item.MaSach })">
+                                    <div id="AnhBia"><img src="@Url.Content("~/HinhAnhSP/"+item.AnhBia)" /></div>
+                                </a>
+                            </div>
+                            <div class="bottom">
+                                @*Nếu tên sách dài hơn 30 ký tự thì chúng ta sẽ cắt tên sách ra lấy từ ký tự 0 đến ký tự 35*@
+                                @if (item.TenSach.Length < 35)
+                                {
+                                    <div class="heading" title="@item.TenSach">@item.TenSach.</div>
+                                }
+                                else
+                                {
+                                    <div class="heading" title="@item.TenSach"> @item.TenSach.Substring(0, 35) ...</div>
+                                }
+                                @*Dịch dấu chấm động đơn giá sử dụng string.Format("{0:0,0}", tham số)*@
+
+                            </div>
+                            <div class="style">Giá: @String.Format("{0:0,0}", item.GiaBan) VNĐ</div>
+                            @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMaSach = item.MaSach, @strURL = Request.Url.ToString() }))
+                            {
+                                <div class="info"><input type="submit" value="Mua hàng" id="btnGioHang" class="btn btn-primary btn-primary"></div>
+                            }
+                        </div>
+                    </div>
+                            if (i % 3 == 0)
+                            {
+                            }
+                }
+            </div>
+        }
+    </div>
+</div>

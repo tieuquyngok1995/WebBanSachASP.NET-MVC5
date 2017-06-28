@@ -1,0 +1,30 @@
+﻿
+@using WebSiteBanSach.Models;
+@*Định nghĩa kiểu dữ liệu cho biến Model*@
+@model List<Sach>
+@{
+
+
+  
+    foreach (var item in Model)
+    {
+        <div class="col-sm-12 col-md-12">
+            <div class="card">
+                <div class="col-sm-7 col-md-7"><img class="card-img-top" src="@Url.Content("~/HinhAnhSP/"+item.AnhBia)"></div>
+
+                <div class="col-sm-5 col-md-5">
+                    @*Nếu tên sách dài hơn 30 ký tự thì chúng ta sẽ cắt tên sách ra lấy từ ký tự 0 đến ký tự 30*@
+                    @if (item.TenSach.Length > 30)
+                    {
+                        <p><strong title="@item.TenSach">Tiêu đề: @item.TenSach.Substring(0, 30)...</strong><br /><a href="@Url.Action("XemChiTiet", new { @masach=item.MaSach })">Xem chi tiết</a></p>
+                    }
+                    else
+                    {
+                        <p><strong title="@item.TenSach">Tiêu đề: @item.TenSach</strong><br /><a href="@Url.Action("XemChiTiet", new { @masach=item.MaSach })">Xem chi tiết</a></p>
+                        <div class="clear"></div>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+}

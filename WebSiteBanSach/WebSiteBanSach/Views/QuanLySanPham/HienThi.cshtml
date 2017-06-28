@@ -1,0 +1,119 @@
+﻿@model WebSiteBanSach.Models.Sach
+
+@{
+    ViewBag.Title = "HienThi";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+
+<div >
+    
+        <h1><p align="center">Thông tin Sách </p></h1>
+   
+    <div style="height:500px;width:1000px;">
+
+        
+            <dl>
+
+               
+                    <dt><li>
+                        <legend style=" font-size:15px;height:30px; margin-top:-30px;">
+                            @Html.DisplayNameFor(model => model.MaSach)
+                        </legend> </li>
+                    </dt>
+
+                    <dd><legend style=" font-size:15px;height:30px; margin-top:-30px;">
+    @Html.DisplayFor(model => model.MaSach)
+</legend>
+                    </dd>
+
+                    <dt><legend style=" font-size:15px;height:30px; margin-top:-30px;">
+    @Html.DisplayNameFor(model => model.TenSach)
+</legend>
+                    </dt>
+
+                    <dd>
+                        <legend style=" font-size:15px;height:30px; margin-top:-30px;">
+                            @Html.DisplayFor(model => model.TenSach)
+                        </legend>
+                    </dd>
+
+                    <dt>
+                        <legend style=" font-size:15px;height:30px; margin-top:-30px;">
+                            @Html.DisplayNameFor(model => model.GiaBan)
+                        </legend>
+                    </dt>
+
+                    <dd>
+                        <legend style=" font-size:15px;height:30px; margin-top:-30px;">
+                            @Html.DisplayFor(model => model.GiaBan)
+                            </legend>
+</dd>
+
+                    <dt><legend style=" font-size:15px;height:30px; margin-top:-30px;">
+    @Html.DisplayNameFor(model => model.MoTa)</legend>
+</dt>
+
+                    <dd>
+                        <legend style=" font-size:15px;height:30px; margin-top:-30px;">
+                            @Html.Raw(Model.MoTa)</legend>
+</dd>
+
+                    <dt><legend style=" font-size:15px;height:30px; margin-top:-30px;">
+    @Html.DisplayNameFor(model => model.NgayCapNhat)</legend>
+</dt>
+
+                    <dd><legend style=" font-size:15px;height:30px; margin-top:-30px;">
+    @Html.DisplayFor(model => model.NgayCapNhat)</legend>
+</dd>
+
+                    <dt><legend style=" font-size:15px;height:30px; margin-top:-30px;">
+    @Html.DisplayNameFor(model => model.AnhBia)</legend>
+</dt>
+
+                    <dd><legend style=" font-size:15px;height:30px; margin-top:-30px;">
+    @Html.DisplayFor(model => model.AnhBia)</legend>
+</dd>
+
+                    <dt><legend style=" font-size:15px;height:30px; margin-top:-30px;">
+    @Html.DisplayNameFor(model => model.SoLuongTon)</legend>
+</dt>
+
+                    <dd><legend style=" font-size:15px;height:30px; margin-top:-30px;">
+    @Html.DisplayFor(model => model.SoLuongTon)</legend>
+</dd>
+
+                    <dt><legend style=" font-size:15px;height:30px; margin-top:-30px;">
+    @Html.DisplayNameFor(model => model.ChuDe.TenChuDe)</legend>
+</dt>
+
+                    <dd><legend style=" font-size:15px;height:30px; margin-top:-30px;">
+    @Html.DisplayFor(model => model.ChuDe.TenChuDe)</legend>
+</dd>
+
+                    <dt><legend style=" font-size:15px;height:30px; margin-top:-30px;">
+    @Html.DisplayNameFor(model => model.NhaXuatBan.TenNXB)</legend>
+</dt>
+
+                    <dd><legend style=" font-size:15px;height:30px; margin-top:-30px;">
+    @Html.DisplayFor(model => model.NhaXuatBan.TenNXB)</legend>
+</dd>
+
+                    <dt><legend style=" font-size:15px;height:30px; margin-top:-30px;">
+    @Html.DisplayNameFor(model => model.Moi)
+</legend>
+                    </dt>
+
+                    <dd><legend style=" font-size:15px;height:30px; margin-top:-30px;">
+    @Html.DisplayFor(model => model.Moi)
+                        </legend>
+</dd>
+</dl>
+        
+</div>
+               
+  </div>
+<p align="center" >
+    <a class="btn btn-primary" href="@Url.Action("ChinhSua", new { @MaSach = Model.MaSach })">Chỉnh sửa</a>||
+    <a class="btn btn-primary" href="@Url.Action("Index", new { @MaSach = Model.MaSach })">Trở về trang chủ</a>
+</p>

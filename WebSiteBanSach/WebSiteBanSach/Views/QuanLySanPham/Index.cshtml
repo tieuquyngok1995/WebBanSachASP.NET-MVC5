@@ -1,0 +1,120 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model PagedList.PagedList<WebSiteBanSach.Models.Sach>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+
+
+<p align="right">
+    
+    <a  href="@Url.Action("ThemMoi")" class="btn btn-primary" >Thêm Sách Mới</a>
+</p>
+<table class ="table-fill">
+    <thead>
+        <tr>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.First().MaSach)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.First().TenSach)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.First().GiaBan)
+            </th>
+         
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.First().NgayCapNhat)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.First().AnhBia)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.First().SoLuongTon)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.First().MaChuDe)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.First().MaNXB)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.First().Moi)
+            </th>
+               <th></th>
+        </tr>
+        </thead>
+    <tbody class="table-hover">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.MaSach)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.TenSach)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.GiaBan)
+                </td>
+               
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.NgayCapNhat)
+                </td>
+                <td class="text-center" style="width:200px;height:250px;">
+                    <div id="AnhBia"><img src="@Url.Content("~/HinhAnhSP/"+item.AnhBia)" style="width:100px;height:150px;" /></div>
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.SoLuongTon)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.MaChuDe)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.NhaXuatBan.TenNXB)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.Moi)
+                </td>
+                <td class ="text-center">
+                    
+                    <a href="@Url.Action("HienThi", new { @MaSach = item.MaSach })" class="btn btn-block btn-success"><span class="glyphicon glyphicon-zoom-in"></span> Xem Chi Tiết</a>
+                    <a href="@Url.Action("ChinhSua", new { @MaSach = item.MaSach })" class="btn btn-block btn-warning"><span class="glyphicon glyphicon-wrench"></span> Chỉnh Sửa</a>
+                    <a href="@Url.Action("Xoa", new { @MaSach = item.MaSach })" class="btn btn-block btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa Sản Phẩm</a>
+                   </td class>
+            </tr>
+        }
+        </tbody>
+</table>
+    
+<div class="dataTables_paginate paging_simple_numbers" >
+    
+        <ul class="pagination">
+
+          
+                <p align="center">
+                    @* Tạo link liên kết các trang*@
+                    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/ @Model.PageCount
+</p>
+
+ </ul> 
+</div>
+    <div class="dataTables_paginate paging_simple_numbers" id="datatable_paginate">
+        <div align="center">
+            <ul class="pagination">
+
+
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+
+
+            </ul>
+        </div>
+</div>
+    <style>
+        .MenuTrang li {
+            display: inline;
+        }
+    </style>

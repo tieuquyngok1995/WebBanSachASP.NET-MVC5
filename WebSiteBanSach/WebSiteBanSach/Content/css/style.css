@@ -1,0 +1,385 @@
+/*
+Code snippet by maridlcrmn for Bootsnipp.com
+Follow me on Twitter @maridlcrmn
+*/
+body {
+text-decoration:none;
+}
+
+.navbar-brand { position: relative; z-index: 2; }
+
+.navbar-nav.navbar-right .btn { position: relative; z-index: 2; padding: 4px 20px; margin: 10px auto; transition: transform 0.3s; }
+
+.navbar .navbar-collapse { position: relative; overflow: hidden !important; }
+.navbar .navbar-collapse .navbar-right > ul{ }
+.navbar .navbar-collapse .navbar-right > li {padding-left: 10px;}
+
+.navbar.navbar-default .nav-collapse { background-color: #f8f8f8; }
+.navbar.navbar-inverse .nav-collapse { background-color: #222; }
+.navbar .nav-collapse .navbar-form { border-width: 0; box-shadow: none; }
+.nav-collapse>li { float: right; }
+
+.btn.btn-circle { border-radius: 50px; }
+.btn.btn-outline { background-color: transparent;}
+
+.navbar-nav.navbar-right .btn:not(.collapsed) {
+    background-color: rgb(111, 84, 153);
+    border-color: rgb(111, 84, 153);
+    color: rgb(255, 255, 255);
+}
+
+.navbar.navbar-default .nav-collapse,
+.navbar.navbar-inverse .nav-collapse {
+    height: auto !important;
+    transition: transform 0.3s;
+    transform: translate(0px,-50px);
+}
+.navbar.navbar-default .nav-collapse.in,
+.navbar.navbar-inverse .nav-collapse.in {
+    transform: translate(0px,0px);
+}
+.divChuDe{
+    font-size:14px;
+}
+.divChuDe .btn-info {
+    margin:5px 0 5px 0;
+    
+}
+
+@media screen and (max-width: 767px) {
+    .navbar .navbar-collapse .navbar-right > li:last-child { padding-left: 15px; padding-right: 15px; } 
+    
+    .navbar .nav-collapse { margin: 7.5px auto; padding: 0; }
+    .navbar .nav-collapse .navbar-form { margin: 0; }
+    .nav-collapse>li { float: none; }
+    
+    .navbar.navbar-default .nav-collapse,
+    .navbar.navbar-inverse .nav-collapse {
+        transform: translate(-100%,0px);
+    }
+    .navbar.navbar-default .nav-collapse.in,
+    .navbar.navbar-inverse .nav-collapse.in {
+        transform: translate(0px,0px);
+    }
+    
+    .navbar.navbar-default .nav-collapse.slide-down,
+    .navbar.navbar-inverse .nav-collapse.slide-down {
+        transform: translate(0px,-100%);
+    }
+    .navbar.navbar-default .nav-collapse.in.slide-down,
+    .navbar.navbar-inverse .nav-collapse.in.slide-down {
+        transform: translate(0px,0px);
+    }
+}
+/* Makes images fully responsive */
+
+.img-responsive,
+.thumbnail > img,
+.thumbnail a > img,
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ------------------- Carousel Styling ------------------- */
+.slide-img {
+    height:440px;
+    width:950px;
+
+}
+.carousel-inner {
+  border-radius: 15px;
+}
+
+.carousel-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  padding: 0 0 10px 25px;
+  color: #fff;
+  text-align: left;
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  z-index: 15;
+  margin: 0;
+  padding: 0 25px 25px 0;
+  text-align: right;
+}
+
+.carousel-control.left,
+.carousel-control.right {
+  background-image: none;
+}
+
+
+/* ------------------- Section Styling - Not needed for carousel styling ------------------- */
+
+
+.card{
+    height:140px;
+    padding: 5px 0 5px 0;
+    -webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
+    -o-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+.card-img-top {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.block {
+  margin: 20px;
+  border-radius: 4px;
+  width: 280px;
+  min-height: 430px;
+  background: #fff;
+  padding: 23px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  box-shadow: 0 2px 55px rgba(0,0,0,0.1);
+}
+
+.middle {
+  margin-bottom: 40px;
+}
+.middle img {
+  width: 100%;
+}
+.bottom {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+.heading {
+  font-size: 17px;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  letter-spacing: 0;
+}
+.info {
+  font-size: 14px;
+  color: #969696;
+
+  padding:0 0 0 60px;
+}
+.style {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+.old-price {
+  color: #f00;
+  text-decoration: line-through;
+}
+.pagination>li>a, .pagination>li>span { border-radius: 50% !important;margin: 0 5px;}
+.page-number{
+    margin: 0 0 0 650px;
+}
+.page-number .MenuTrang {
+    margin:0 0 0 -50px;
+}
+
+#footer {
+    border-top: 5px solid #CDB380;
+    background: #033649 none repeat scroll 0% 0%;
+    padding-top: 20px;
+    clear: both;
+    color: #AAA;
+    display: block;
+}
+
+#footer .widgettitle {
+    margin: 0px 0 10px 0px;
+    padding: 0px 0px 0px 30px;
+    border-bottom: medium none;
+}
+
+#footer h4 {
+    color: #FFF;
+}
+
+#footer ul {
+    list-style: outside none none;
+    margin: -5px 0 0px 0;
+}
+
+#footer li {
+    padding: 7px 0px;
+    border-bottom: 1px dotted rgba(255, 255, 255, 0.2);
+    margin: 0px;
+}
+
+#footer li span {
+    margin-right: 10px;
+}
+
+#footer li a {
+    color: #DDD;
+    text-decoration: none;
+}
+
+#footer li a:hover {
+    color: #A9A9A9;
+    text-decoration: none;
+}
+
+#sub-floor {
+    color: #AAA;
+    background: #031634 none repeat scroll 0% 0%;
+    padding: 5px 0 5px 0;
+}
+
+#sub-floor p {
+    margin: 0px 0 0px 0;
+}
+.glyphicon {
+    margin: 0 2px 0 0px;
+}
+.block-info {
+  margin: 20px;
+  border-radius: 4px;
+  width: auto;
+  min-height: 430px;
+  background: #fff;
+  padding: 23px;
+
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  box-shadow: 0 2px 55px rgba(0,0,0,0.1);
+}
+
+.panel-body { padding:0px; }
+.panel-body table tr td { padding-left: 15px }
+.panel-body .table {margin-bottom: 0px; }
+.panel-body{
+    font-size:16px;
+}
+.well {
+    height:auto;
+    width:auto;
+}
+.block-product{
+  margin:5px 0 20px 0;
+  height:350px;
+  width:180px;
+
+  display: -webkit-box;
+  display: -ms-flexbox;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  box-shadow: 0 2px 55px rgba(0,0,0,0.1);
+    border-radius: 10px;
+
+}
+.block-product .middle img {
+  margin: 15px 0 0px 0;
+  width: 100%;
+}
+.block-product .heading {
+  font-size: 15px;
+  text-transform: uppercase;
+  margin:-10px 0 5px 0;
+  letter-spacing: 0;
+}
+.block-product .info {
+  font-size: 14px;
+  color: #969696;
+  padding:0 0 0 60px;
+}
+.block-product .style {
+  font-size: 18px;
+  color:red;
+  margin:0px 0 5px 20px;
+}
+.block-product .btn-primary {
+    margin:5px 0 10px -15px;
+}
+.wrapper {
+        margin-top: 50px;
+        margin-bottom: 20px;
+    }
+
+    .form-signin {
+        max-width: 420px;
+        padding: 10px 38px 66px;
+        margin: 0 auto;
+        background-color: #eee;
+        border: 3px dotted rgba(0,0,0,0.1);
+        border-radius: 5px;
+    }
+
+    .form-signin-heading {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .form-control {
+        position: relative;
+        font-size: 16px;
+        height: auto;
+        padding: 10px;
+    }
+
+    input[type="text"] {
+        margin-bottom: 0px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    input[type="password"] {
+        margin-bottom: 20px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+    #playground-container {
+    height: 500px;
+    overflow: hidden !important;
+    -webkit-overflow-scrolling: touch;
+}
+
+
+.main-center{
+ 	margin-top: 30px;
+ 	margin: 0 auto;
+ 	max-width: 600px;
+     background:#7FFFD4;
+    text-shadow: none;
+	-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
+    -moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
+    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
+
+}
+
+.form-horizontal .btn-group-vertical{
+    margin: 5px 0 20px 100px;
+}

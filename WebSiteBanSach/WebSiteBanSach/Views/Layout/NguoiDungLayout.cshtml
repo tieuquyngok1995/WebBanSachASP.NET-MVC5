@@ -1,0 +1,208 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @*Chèn link font*@
+    <link href="~/Content/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />
+    @*Chèn link nivo slider*@
+    <link href="~/NivoSlider/nivo-slider.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/NivoSlider/jquery.nivo.slider.js"></script>
+    <script src="~/NivoSlider/jquery.nivo.slider.pack.js"></script>
+    @*Chèn link css của boostrap *@
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+    @*Chèn link js cua boostrap *@
+    <script src="~/Content/js/bootstrap.js"></script>
+    <script src="~/Content/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+
+        <nav class="navbar navbar-inverse">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="@Url.Action("Index","Home")">Trang Chủ</a>
+                </div>
+
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar-collapse-3">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a class="btn btn-default btn-outline btn-circle collapsed" data-toggle="collapse" href="#nav-collapse3" aria-expanded="false" aria-controls="nav-collapse3">Tìm Kiếm</a>
+                        </li>
+
+                        <li>
+                            @Html.ActionLink("Đăng Ký", "DangKy", "NguoiDung", null, htmlAttributes: new { @class = "DangKy" })
+
+                        </li>
+                        @if (Session["TaiKhoan"] == null)
+                        {
+                             <li>
+                           @Html.ActionLink("Đăng nhập", "DangNhap", "NguoiDung", null, htmlAttributes: new { @class = "DangNhap" })
+                            </li>
+                            
+                        }
+                        else
+                        {
+                            
+                            <li><a href="~/QuanLySanPham/Index">@Session["HoTen"] </a></li>
+   
+                            <li><a href="~/NguoiDung/DangXuat">Exit</a></li>
+                        }
+                       
+                        <li>
+                            @Html.Action("GioHangPartial", "GioHang")
+                            
+                        </li>
+
+                    </ul>
+
+                    <div class="collapse nav navbar-nav nav-collapse slide-down" id="nav-collapse3">
+                        <div class="navbar-form navbar-right" role="search"><div class="form-group">
+                            @using (Html.BeginForm("KetQuaTimKiem", "TimKiem", FormMethod.Post))
+                            {
+                                @Html.TextBox("txtTimKiem", "", htmlAttributes: new { @class = "form-control", @placeholder = "Nhập vào từ khóa cần tìm ..." })
+                                @*Chèn vào image button hình ảnh*@
+                                <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                                    
+                            }
+                        </div>
+                        </div>
+                    </div>
+
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container -->
+        </nav><!-- /.navbar -->
+        </div>
+    
+        @RenderSection("footer", false)
+    
+     
+
+    <div class="col-sm-12 col-md-12">
+        @RenderBody()
+    </div>
+    <div class="col-sm-12 col-md-12">
+
+        <div class="col-sm-6 col-md-6">
+            @*Phần chủ đề*@
+            <div class="divChuDe">
+                @Html.Action("ChuDePartial", "ChuDe")
+            </div>
+            <hr>
+        </div>
+           
+            @*Div nhà xuất bản*@
+        <div class="col-sm-6 col-md-6">
+            <div class="divChuDe">
+                @*Action partialview*@
+                @Html.Action("NhaXuatBanPartial", "NhaXuatBan")
+
+            </div>
+        </div>
+        </div>
+   
+    <footer id="footer">
+        <div class="container">
+
+            <div id="footer-wrapper">
+
+                <div class="row">
+
+                    <div class="col-sm-6 col-md-2">
+                        <div id="meta-3" class="widget widgetFooter widget_meta">
+                            <h4 class="widgettitle">Importent Page</h4>
+                            <ul>
+                                <li><span class="fa fa-home fa-fw"></span><a href="@Url.Action("Index","Home")">Home</a></li>
+                                <li><span class="fa fa-link"></span><a href="#">Promotion</a></li>
+                                <li><span class="fa fa-envelope fa-fw"></span><a href="#">Contact Us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- end -->
+                    <div class="col-sm-6 col-md-2">
+                        <div id="recent-posts-3" class="widget widgetFooter widget_recent_entries">
+                            <h4 class="widgettitle">Our Social Media</h4>
+                            <ul>
+                                <li><span class="fa fa-facebook"></span><a href="https://www.facebook.com/">Facebook</a></li>
+                                <li><span class="fa fa-twitter"></span><a href="https://www.twitter.com/">Twitter</a></li>
+                                <li><span class="fa fa-youtube"></span><a href="http://www.youtube.com/">Youtube</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- end -->
+                    <div class="col-sm-6 col-md-2">
+                        <h4 class="widgettitle">Categories</h4>
+                        <ul>
+                            <li><span class="glyphicon glyphicon-glass text-primary"></span><a href="#">Ngoại Ngữ</a></li>
+                            <li><span class="glyphicon glyphicon-plane text-success"></span><a href="#">Kinh Tế</a></li>
+                            <li><span class="glyphicon glyphicon-music text-warning"></span><a href="#">Kim Đồng</a></li>
+                            <li><span class="glyphicon glyphicon-globe text-danger"></span><a href="#">Phương Đông</a></li>
+                        </ul>
+                    </div>
+                    <!-- end -->
+                    <div class="col-sm-6 col-md-4">
+                        <h4 class="widgettitle">Contact</h4>
+                        <ul>
+                            <li>Have a question or feedback? Contact me!</li>
+                            <li><span class="fa fa-envelope"></span><a href="" title="Contact me!"> Contact</a></li>
+                            <h4>Follow:</h4>
+                            <a href="" id="gh" target="_blank" title="Twitter">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-square-o fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x"></i>
+                                </span>Twitter
+                            </a>
+                            <a href="" target="_blank" title="GitHub">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-square-o fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x"></i>
+                                </span>GitHub
+                            </a>
+                            <a href="" target="_blank" title="Facebok">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-square-o fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x"></i>
+                                </span>Facebok
+                            </a>
+                        </ul>
+                    </div>
+                    <!-- end -->
+                    <div class="col-sm-12 col-md-2">
+
+                    </div>
+                    <!-- end -->
+
+                </div>
+
+            </div>
+
+
+        </div>
+        <div id="sub-floor">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 copyright">
+                        <p>SachOnline.com. Lầu 200 tòa nhà Bitexco, Quận 1, TP.HCM.</p>
+                    </div>
+                    <div class="col-md-4 col-md-offset-4 attribution">
+                        <p>Developer by  <a target="_blank" href="#">My team</a> .</p>
+                    </div>
+                </div> <!-- end .row -->
+            </div>
+        </div>
+    </footer>   
+</body>
+</html>

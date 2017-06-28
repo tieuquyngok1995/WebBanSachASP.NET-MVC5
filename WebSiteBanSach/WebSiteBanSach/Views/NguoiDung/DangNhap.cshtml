@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "DangNhap";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+
+<div class="container">
+    <div class="wrapper">
+        <div class="form-signin">
+@using (Html.BeginForm())
+{
+            <h3 class="form-signin-heading">
+                <img src="~/HinhAnh/Logo_Image_01.png" style="width:100px;height:100px" alt="Alternate Text" />
+                <br />
+                <b style="color:#c7c7c7 !important">@ViewBag.ThongBao</b>
+            </h3>
+
+    <input type="text" class="form-control" name="txtTaiKhoan" placeholder="Username" required="" autofocus="" />
+                    <br />
+    <input type="password" class="form-control" name="txtMatKhau" placeholder="Password" required="" />
+    <button class="btn btn-lg btn-primary btn-block" id="btnSubmit" name="btnSubmit" value="Login" type="submit">Login</button>
+}
+        </div>
+    </div>
+</div>

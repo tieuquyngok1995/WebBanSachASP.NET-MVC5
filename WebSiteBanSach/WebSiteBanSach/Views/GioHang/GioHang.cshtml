@@ -1,0 +1,73 @@
+﻿@using WebSiteBanSach.Models;
+@model List<GioHang>
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-12">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Mã Sách</th>
+                        <th>Thông Tin Sách</th>
+                        <th class="text-center">Giá</th>
+                        <th>Số Lượng</th>
+                        <th class="text-center">Thành Tiền</th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody>
+@foreach (var item in Model)
+    {
+                    <tr>
+                        <td class="col-sm-1 col-md-1 text-center"><strong>@item.iMaSach</strong></td>
+                        <td class="col-sm-7 col-md-6">
+                            <div class="media">
+                                <a class="thumbnail pull-left" href="@Url.Action("XemChiTiet", "Sach", new { @MaSach = item.iMaSach})"> 
+                                    <img class="media-object" src="@Url.Content("~/HinhAnhSP/"+item.sAnhBia)" style="width: 72px; height: 72px;"> </a>
+                                <div class="media-body">
+                                    <h4 class="media-heading">@item.sTenSach</h4>
+                                   
+                                </div>
+                            </div>
+                        </td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong>@String.Format("{0:0,0}", item.dDonGia) VNĐ</strong></td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong>@item.iSoLuong</strong></td>
+                        
+                        <td class="col-sm-1 col-md-1 text-center"><strong>@String.Format("{0:0,0}", item.ThanhTien) VNĐ</strong></td>
+                        <td class="col-sm-1 col-md-1">
+                            <button type="button" class="btn btn-danger">
+                                <span class="glyphicon glyphicon-remove"></span> <a href="@Url.Action("SuaGioHang")" style="text-decoration:none">Chỉnh sửa giỏ hàng</a>
+                            </button>
+                        </td>
+                    </tr>
+    }       
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>
+                            <button type="button" class="btn btn-default">
+                                <span class="glyphicon glyphicon-shopping-cart"></span><a href="@Url.Action("Index","Home")" style="text-decoration:none">Mua Thêm</a>
+                            </button>
+                        </td>
+                        <td>
+                            @using (Html.BeginForm("DatHang", "GioHang"))
+                            {
+                               <button type="submit" class="btn btn-success">
+                                Thanh Toán <span class="glyphicon glyphicon-expand"></span>
+                            </button>
+                            }
+                            
+                        </td>
+                        <td>  
+                            <a href="~/NguoiDung/HuyGioHang" class="btn btn-block btn-primary btn-danger"><span class="glyphicon glyphicon-cog"></span> Hủy Đơn Hàng</a></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,141 @@
+﻿@model WebSiteBanSach.Models.Sach
+
+@{
+    ViewBag.Title = "ThemMoi";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+
+@*Thêm thuộc tính cho form để upload ảnh*@
+@using (Html.BeginForm("ThemMoi", "QuanLySanPham", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <legend>Thêm mới sách</legend>
+
+        @Html.ValidationSummary(true)
+
+
+        <div class="panel panel-default">
+            <div class="panel-body form-horizontal payment-form">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.TenSach, new { @class = "control-label col-sm-3" })
+                    <div class="col-md-10">
+                        <span style="font-size:15pt;margin-top:10px;margin-left:15px;margin-bottom:150px;">
+                            @Html.EditorFor(model => model.TenSach)</span>
+                            @Html.ValidationMessageFor(model => model.TenSach)
+</div>
+                </div>
+            </div>
+        </div><br>
+        <div class="panel panel-default">
+            <div class="panel-body form-horizontal payment-form">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.GiaBan, new { @class = "control-label col-sm-3" })
+                    <div class="col-md-10"><span style="font-size:15pt;margin-top:10px;margin-left:15px;margin-bottom:150px;">
+    @Html.EditorFor(model => model.GiaBan)</span>
+    @Html.ValidationMessageFor(model => model.GiaBan)
+</div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="panel panel-default">
+            <div class="panel-body form-horizontal payment-form">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.NgayCapNhat, new { @class = "control-label col-sm-3" })
+                    <div class="col-md-10">
+                        <span style="font-size:15pt;margin-top:10px;margin-left:15px;margin-bottom:150px;">
+                            @Html.EditorFor(model => model.NgayCapNhat)</span>
+                            @Html.ValidationMessageFor(model => model.NgayCapNhat)
+</div>
+                </div>
+            </div>
+        </div><br>
+        <div class="panel panel-default">
+            <div class="panel-body form-horizontal payment-form">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.AnhBia, new { @class = "control-label col-sm-3" })
+                    <div class="col-md-10">
+                        @*Name của thẻ input file phải trùng tên với tham số bên controller*@
+                        <span style="font-size:15pt;margin-top:10px;margin-left:15px;margin-bottom:150px;">
+                            <input type="file" name="fileUpload"></span>
+                            @*Thông báo trùng*@
+                            @ViewBag.ThongBao
+</div>
+                </div>
+            </div>
+        </div><br>
+        <div class="panel panel-default">
+            <div class="panel-body form-horizontal payment-form">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SoLuongTon, new { @class = "control-label col-sm-3" })
+                    <div class="col-md-10">
+                        <span style="font-size:15pt;margin-top:10px;margin-left:15px;margin-bottom:150px;">
+                            @Html.EditorFor(model => model.SoLuongTon)
+                            </span>
+                            @Html.ValidationMessageFor(model => model.SoLuongTon)
+</div>
+                </div>
+            </div>
+        </div><br>
+        <div class="panel panel-default">
+            <div class="panel-body form-horizontal payment-form">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.MaChuDe, new { @class = "control-label col-sm-3" })
+                    <div class="col-md-10">
+                        <span style="font-size:15pt;margin-top:10px;margin-left:15px;margin-bottom:150px;">
+                            @Html.DropDownList("MaChuDe")</span>
+
+</div>
+                </div>
+            </div>
+        </div> <br><div class="panel panel-default">
+            <div class="panel-body form-horizontal payment-form">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.MaNXB, new { @class = "control-label col-sm-3" })
+                    <div class="col-md-10">
+                        <span style="font-size:15pt;margin-top:10px;margin-left:15px;margin-bottom:150px;">
+                            @Html.DropDownList("MaNXB")</span>
+
+</div>
+                </div>
+            </div>
+        </div>
+
+        <br > <div class="panel panel-default">
+            <div class="panel-body form-horizontal payment-form">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Moi, new { @class = "control-label col-sm-3" })
+                    <div class="col-md-10">
+                        <span style="font-size:15pt;margin-top:10px;margin-left:15px;margin-bottom:150px;">
+                            @Html.EditorFor(model => model.Moi)</span>
+                            @Html.ValidationMessageFor(model => model.Moi)
+</div>
+                </div>
+                </div></div>
+        <br>
+                <div class="form-group">
+                    <span style="font-size:15pt;margin-top:10px;margin-left:15px;margin-bottom:150px;">
+                        @Html.LabelFor(model => model.MoTa, new { @class = "control-label col-sm-3" })</span>
+                    <br >
+                        <div class="col-md-10">
+                            <br >
+                            <textarea name="MoTa">Easy! You should check out MoxieManager!</textarea>
+                        </div>
+</div>
+        <br>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Thêm mới" class="btn btn-warning" />
+                    </div>
+                </div>
+
+            </div>
+            }
+
+            <div>
+    <a href="@Url.Action("Index")" class="btn btn-success">Trở về trang chủ</a>
+
+</div>
